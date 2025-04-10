@@ -428,3 +428,18 @@ h6::before {
   -webkit-animation: ccc 6s linear infinite;
   animation: ccc 6s linear infinite;
 }
+/* 图标大小 */
+svg.icon {
+  width: 1.2em;
+  height: 1.06em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+svg.social_icon {
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
