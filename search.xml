@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>第一篇文章</title>
-      <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-      
-        <content type="html"><![CDATA[<h2 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h2><div class="note default simple"><p>内容</p></div><div class="timeline blue"><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>时间轴样式</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2020-07-24 <a href="https://github.com/volantis-x/hexo-theme-volantis/releases">2.6.6 -&gt; 3.0</a></p></div>        </div>        <div class='timeline-item-content'><ol><li>如果有 <code>hexo-lazyload-image</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>hexo-offline</code> 插件，建议卸载，3.0 版本默认开启了 pjax 服务。</li></ol></div>      </div></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> PYTHON </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>第七篇文章</title>
       <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%83%E7%AF%87%E6%96%87%E7%AB%A0/"/>
       <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%83%E7%AF%87%E6%96%87%E7%AB%A0/</url>
@@ -36,16 +17,16 @@
     
     
     <entry>
-      <title>第三篇文章</title>
-      <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%89%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%89%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <title>第一篇文章</title>
+      <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
       
-        <content type="html"><![CDATA[<h2 id="第三篇文章"><a href="#第三篇文章" class="headerlink" title="第三篇文章"></a>第三篇文章</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h2><div class="note default simple"><p>内容</p></div><div class="timeline blue"><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>时间轴样式</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2020-07-24 <a href="https://github.com/volantis-x/hexo-theme-volantis/releases">2.6.6 -&gt; 3.0</a></p></div>        </div>        <div class='timeline-item-content'><ol><li>如果有 <code>hexo-lazyload-image</code> 插件，需要删除并重新安装最新版本，设置 <code>lazyload.isSPA: true</code>。</li><li>2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 <code>use_cdn: true</code> 则需要删除。</li><li>2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。</li><li>2.x 版本的置顶 <code>top: true</code> 改为了 <code>pin: true</code>，并且同样适用于 <code>layout: page</code> 的页面。</li><li>如果使用了 <code>hexo-offline</code> 插件，建议卸载，3.0 版本默认开启了 pjax 服务。</li></ol></div>      </div></div>]]></content>
       
       
       <categories>
           
-          <category> Hexo </category>
+          <category> PYTHON </category>
           
       </categories>
       
@@ -74,12 +55,18 @@
     
     
     <entry>
-      <title>第六篇文章</title>
-      <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E5%85%AD%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2025/04/08/2025-4-8-%E7%AC%AC%E5%85%AD%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <title>第三篇文章</title>
+      <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%89%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%89%E7%AF%87%E6%96%87%E7%AB%A0/</url>
       
-        <content type="html"><![CDATA[<h2 id="第六篇文章"><a href="#第六篇文章" class="headerlink" title="第六篇文章"></a>第六篇文章</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="第三篇文章"><a href="#第三篇文章" class="headerlink" title="第三篇文章"></a>第三篇文章</h2>]]></content>
       
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
       
       
     </entry>
@@ -92,6 +79,19 @@
       <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%BA%94%E7%AF%87%E6%96%87%E7%AB%A0/</url>
       
         <content type="html"><![CDATA[<h2 id="第五篇文章"><a href="#第五篇文章" class="headerlink" title="第五篇文章"></a>第五篇文章</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第六篇文章</title>
+      <link href="/2025/04/08/2025-4-8-%E7%AC%AC%E5%85%AD%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2025/04/08/2025-4-8-%E7%AC%AC%E5%85%AD%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="第六篇文章"><a href="#第六篇文章" class="headerlink" title="第六篇文章"></a>第六篇文章</h2>]]></content>
       
       
       
