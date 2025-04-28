@@ -362,7 +362,7 @@ svg.social_icon {
 }
 
 /*--------------------------- 导航栏增强 ----------------------------*/
-/* 标题增强 */
+标题增强
 #site-name::before {
   opacity: 0;
   background-color: var(--theme-color) !important;
@@ -1357,3 +1357,4 @@ svg.icon.faa-tada {
 .bangumi-info-item em {
   color: #3fc6bd;
 }
+

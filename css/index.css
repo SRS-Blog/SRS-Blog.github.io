@@ -4533,53 +4533,44 @@ figure.highlight pre .javascript .function {
 }
 .post-reward {
   position: relative;
-  margin-top: 3rem;
+  margin-top: 4rem;
   width: 100%;
   text-align: center;
 }
 .post-reward .reward-button {
   display: inline-block;
   padding: 0.2rem 1.2rem;
+  border-radius: 4px;
   background: var(--btn-bg);
   color: var(--btn-color);
+  cursor: pointer;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
   -ms-transition: all 0.4s;
   transition: all 0.4s;
-  border-radius: 30px;
 }
 .post-reward .reward-button:hover {
   -webkit-box-shadow: inset 20em 0 0 0 var(--btn-hover-color);
   box-shadow: inset 20em 0 0 0 var(--btn-hover-color);
 }
 .post-reward .reward-button:hover .reward-main {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
+  display: block;
 }
 .post-reward .reward-button .reward-main {
   position: absolute;
   bottom: 40px;
-  left: -55%;
+  left: -25%;
   z-index: 100;
   display: none;
   padding: 0 0 15px;
   width: 150%;
 }
 .post-reward .reward-button .reward-main .reward-all {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
+  display: inline-block;
   margin: 0;
   padding: 1rem 0.5rem;
-  border-radius: 12px;
+  border-radius: 4px;
   background: var(--reward-pop);
 }
 .post-reward .reward-button .reward-main .reward-all:before {
