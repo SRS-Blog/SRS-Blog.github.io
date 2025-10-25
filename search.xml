@@ -37,6 +37,14 @@
       </categories>
   </entry>
   <entry>
+    <title>第二篇文章</title>
+    <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[第二篇文章]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+  </entry>
+  <entry>
     <title>异常&amp;File</title>
     <url>/2025/04/10/IO-%E5%BC%82%E5%B8%B8-File-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B/</url>
     <content><![CDATA[1. 异常1.1 异常概念异常，就是不正常的意思。在生活中:医生说,你的身体某个部位有异常,该部位和正常相比有点不同,该部位的功能将受影响.在程序中的意思就是：
@@ -268,14 +276,6 @@ public class Test6 &#123;    public static void main(String[] args) throws IOExc
 ]]></content>
       <categories>
         <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>第二篇文章</title>
-    <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[第二篇文章]]></content>
-      <categories>
-        <category>C++</category>
       </categories>
   </entry>
   <entry>
@@ -525,286 +525,6 @@ public class CommonsIODemo1 &#123;    public static void main(String[] args) thr
 3，右键点击add as a library
 代码示例：
 public class Test1 &#123;    public static void main(String[] args) &#123;    /*        FileUtil类:                file：根据参数创建一个file对象                touch：根据参数创建文件                writeLines：把集合中的数据写出到文件中，覆盖模式。                appendLines：把集合中的数据写出到文件中，续写模式。                readLines：指定字符编码，把文件中的数据，读到集合中。                readUtf8Lines：按照UTF-8的形式，把文件中的数据，读到集合中                copy：拷贝文件或者文件夹    */       /* File file1 = FileUtil.file(&quot;D:\\&quot;, &quot;aaa&quot;, &quot;bbb&quot;, &quot;a.txt&quot;);        System.out.println(file1);//D:\aaa\bbb\a.txt        File touch = FileUtil.touch(file1);        System.out.println(touch);        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        File file2 = FileUtil.writeLines(list, &quot;D:\\a.txt&quot;, &quot;UTF-8&quot;);        System.out.println(file2);*/      /*  ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        File file3 = FileUtil.appendLines(list, &quot;D:\\a.txt&quot;, &quot;UTF-8&quot;);        System.out.println(file3);*/        List&lt;String&gt; list = FileUtil.readLines(&quot;D:\\a.txt&quot;, &quot;UTF-8&quot;);        System.out.println(list);    &#125;&#125;
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>IO流</title>
-    <url>/2025/04/10/IO%E6%B5%81-%E5%AD%97%E8%8A%82%E6%B5%81-%E5%AD%97%E7%AC%A6%E6%B5%81/</url>
-    <content><![CDATA[1. IO概述
-1.1 什么是IO生活中，你肯定经历过这样的场景。当你编辑一个文本文件，忘记了ctrl+s ，可能文件就白白编辑了。当你电脑上插入一个U盘，可以把一个视频，拷贝到你的电脑硬盘里。那么数据都是在哪些设备上的呢？键盘、内存、硬盘、外接设备等等。
-我们把这种数据的传输，可以看做是一种数据的流动，按照流动的方向，以内存为基准，分为输入input 和输出output ，即流向内存是输入流，流出内存的输出流。
-Java中I/O操作主要是指使用java.io包下的内容，进行输入、输出操作。输入也叫做读取数据，输出也叫做作写出数据。
-1.2 IO的分类根据数据的流向分为：输入流和输出流。
-
-输入流 ：把数据从其他设备上读取到内存中的流。 
-输出流 ：把数据从内存 中写出到其他设备上的流。
-
-格局数据的类型分为：字节流和字符流。
-
-字节流 ：以字节为单位，读写数据的流。
-字符流 ：以字符为单位，读写数据的流。
-
-1.3 IO的流向说明图解
-1.4 顶级父类们
-
-
-
-
-输入流
-输出流
-
-
-
-
-字节流
-字节输入流InputStream
-字节输出流OutputStream
-
-
-字符流
-字符输入流Reader
-字符输出流Writer
-
-
-
-
-2. 字节流2.1 一切皆为字节一切文件数据(文本、图片、视频等)在存储时，都是以二进制数字的形式保存，都一个一个的字节，那么传输时一样如此。所以，字节流可以传输任意文件数据。在操作流的时候，我们要时刻明确，无论使用什么样的流对象，底层传输的始终为二进制数据。
-2.2 字节输出流【OutputStream】java.io.OutputStream抽象类是表示字节输出流的所有类的超类，将指定的字节信息写出到目的地。它定义了字节输出流的基本共性功能方法。
-
-public void close() ：关闭此输出流并释放与此流相关联的任何系统资源。  
-public void flush() ：刷新此输出流并强制任何缓冲的输出字节被写出。  
-public void write(byte[] b)：将 b.length字节从指定的字节数组写入此输出流。  
-public void write(byte[] b, int off, int len) ：从指定的字节数组写入 len字节，从偏移量 off开始输出到此输出流。  
-public abstract void write(int b) ：将指定的字节输出流。
-
-
-小贴士：
-close方法，当完成流的操作时，必须调用此方法，释放系统资源。
-
-2.3 FileOutputStream类OutputStream有很多子类，我们从最简单的一个子类开始。
-java.io.FileOutputStream类是文件输出流，用于将数据写出到文件。
-构造方法
-public FileOutputStream(File file)：创建文件输出流以写入由指定的 File对象表示的文件。 
-public FileOutputStream(String name)： 创建文件输出流以指定的名称写入文件。  
-
-当你创建一个流对象时，必须传入一个文件路径。该路径下，如果没有这个文件，会创建该文件。如果有这个文件，会清空这个文件的数据。
-
-构造举例，代码如下：
-
-public class FileOutputStreamConstructor throws IOException &#123;    public static void main(String[] args) &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileOutputStream fos = new FileOutputStream(file);              // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;b.txt&quot;);    &#125;&#125;
-写出字节数据
-写出字节：write(int b) 方法，每次可以写出一个字节数据，代码使用演示：
-
-public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);           	// 写出数据      	fos.write(97); // 写出第1个字节      	fos.write(98); // 写出第2个字节      	fos.write(99); // 写出第3个字节      	// 关闭资源        fos.close();    &#125;&#125;输出结果：abc
-
-小贴士：
-
-虽然参数为int类型四个字节，但是只会保留一个字节的信息写出。
-流操作完毕后，必须释放系统资源，调用close方法，千万记得。
-
-
-
-写出字节数组：write(byte[] b)，每次可以写出数组中的数据，代码使用演示：
-
-public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);           	// 字符串转换为字节数组      	byte[] b = &quot;黑马程序员&quot;.getBytes();      	// 写出字节数组数据      	fos.write(b);      	// 关闭资源        fos.close();    &#125;&#125;输出结果：黑马程序员
-
-写出指定长度字节数组：write(byte[] b, int off, int len) ,每次写出从off索引开始，len个字节，代码使用演示：
-
-public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);           	// 字符串转换为字节数组      	byte[] b = &quot;abcde&quot;.getBytes();		// 写出从索引2开始，2个字节。索引2是c，两个字节，也就是cd。        fos.write(b,2,2);      	// 关闭资源        fos.close();    &#125;&#125;输出结果：cd
-数据追加续写经过以上的演示，每次程序运行，创建输出流对象，都会清空目标文件中的数据。如何保留目标文件中数据，还能继续添加新数据呢？
-
-public FileOutputStream(File file, boolean append)： 创建文件输出流以写入由指定的 File对象表示的文件。  
-public FileOutputStream(String name, boolean append)： 创建文件输出流以指定的名称写入文件。  
-
-这两个构造方法，参数中都需要传入一个boolean类型的值，true 表示追加数据，false 表示清空原有数据。这样创建的输出流对象，就可以指定是否追加续写了，代码使用演示：
-public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;，true);           	// 字符串转换为字节数组      	byte[] b = &quot;abcde&quot;.getBytes();		// 写出从索引2开始，2个字节。索引2是c，两个字节，也就是cd。        fos.write(b);      	// 关闭资源        fos.close();    &#125;&#125;文件操作前：cd文件操作后：cdabcde
-写出换行Windows系统里，换行符号是\r\n 。把
-以指定是否追加续写了，代码使用演示：
-public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);        	// 定义字节数组      	byte[] words = &#123;97,98,99,100,101&#125;;      	// 遍历数组        for (int i = 0; i &lt; words.length; i++) &#123;          	// 写出一个字节            fos.write(words[i]);          	// 写出一个换行, 换行符号转成数组写出            fos.write(&quot;\r\n&quot;.getBytes());        &#125;      	// 关闭资源        fos.close();    &#125;&#125;输出结果：abcde
-
-
-回车符\r和换行符\n ：
-回车符：回到一行的开头（return）。
-换行符：下一行（newline）。
-
-
-系统中的换行：
-Windows系统里，每行结尾是 回车+换行 ，即\r\n；
-Unix系统里，每行结尾只有 换行 ，即\n；
-Mac系统里，每行结尾是 回车 ，即\r。从 Mac OS X开始与Linux统一。
-
-
-
-
-2.4 字节输入流【InputStream】java.io.InputStream抽象类是表示字节输入流的所有类的超类，可以读取字节信息到内存中。它定义了字节输入流的基本共性功能方法。
-
-public void close() ：关闭此输入流并释放与此流相关联的任何系统资源。    
-public abstract int read()： 从输入流读取数据的下一个字节。 
-public int read(byte[] b)： 从输入流中读取一些字节数，并将它们存储到字节数组 b中 。
-
-
-小贴士：
-close方法，当完成流的操作时，必须调用此方法，释放系统资源。
-
-2.5 FileInputStream类java.io.FileInputStream类是文件输入流，从文件中读取字节。
-构造方法
-FileInputStream(File file)： 通过打开与实际文件的连接来创建一个 FileInputStream ，该文件由文件系统中的 File对象 file命名。 
-FileInputStream(String name)： 通过打开与实际文件的连接来创建一个 FileInputStream ，该文件由文件系统中的路径名 name命名。  
-
-当你创建一个流对象时，必须传入一个文件路径。该路径下，如果没有该文件,会抛出FileNotFoundException 。
-
-构造举例，代码如下：
-
-public class FileInputStreamConstructor throws IOException&#123;    public static void main(String[] args) &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileInputStream fos = new FileInputStream(file);              // 使用文件名称创建流对象        FileInputStream fos = new FileInputStream(&quot;b.txt&quot;);    &#125;&#125;
-读取字节数据
-读取字节：read方法，每次可以读取一个字节的数据，提升为int类型，读取到文件末尾，返回-1，代码使用演示：
-
-public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;);      	// 读取数据，返回一个字节        int read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);      	// 读取到末尾,返回-1       	read = fis.read();        System.out.println( read);		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcde-1
-循环改进读取方式，代码使用演示：
-public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;);      	// 定义变量，保存数据        int b ；        // 循环读取        while ((b = fis.read())!=-1) &#123;            System.out.println((char)b);        &#125;		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcde
-
-小贴士：
-
-虽然读取了一个字节，但是会自动提升为int类型。
-流操作完毕后，必须释放系统资源，调用close方法，千万记得。
-
-
-
-使用字节数组读取：read(byte[] b)，每次读取b的长度个字节到数组中，返回读取到的有效字节个数，读取到末尾时，返回-1 ，代码使用演示：
-
-public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象.       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;); // 文件中为abcde      	// 定义变量，作为有效个数        int len ；        // 定义字节数组，作为装字节数据的容器           byte[] b = new byte[2];        // 循环读取        while (( len= fis.read(b))!=-1) &#123;           	// 每次读取后,把数组变成字符串打印            System.out.println(new String(b));        &#125;		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcded
-错误数据d，是由于最后一次读取时，只读取一个字节e，数组中，上次读取的数据没有被完全替换，所以要通过len ，获取有效的字节，代码使用演示：
-public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象.       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;); // 文件中为abcde      	// 定义变量，作为有效个数        int len ；        // 定义字节数组，作为装字节数据的容器           byte[] b = new byte[2];        // 循环读取        while (( len= fis.read(b))!=-1) &#123;           	// 每次读取后,把数组的有效字节部分，变成字符串打印            System.out.println(new String(b，0，len));//  len 每次读取的有效字节个数        &#125;		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcde
-
-小贴士：
-使用数组读取，每次读取多个字节，减少了系统间的IO操作次数，从而提高了读写的效率，建议开发中使用。
-
-2.6 字节流练习：图片复制复制原理图解
-案例实现复制图片文件，代码使用演示：
-public class Copy &#123;    public static void main(String[] args) throws IOException &#123;        // 1.创建流对象        // 1.1 指定数据源        FileInputStream fis = new FileInputStream(&quot;D:\\test.jpg&quot;);        // 1.2 指定目的地        FileOutputStream fos = new FileOutputStream(&quot;test_copy.jpg&quot;);        // 2.读写数据        // 2.1 定义数组        byte[] b = new byte[1024];        // 2.2 定义长度        int len;        // 2.3 循环读取        while ((len = fis.read(b))!=-1) &#123;            // 2.4 写出数据            fos.write(b, 0 , len);        &#125;        // 3.关闭资源        fos.close();        fis.close();    &#125;&#125;
-
-小贴士：
-流的关闭原则：先开后关，后开先关。
-
-3. 字符流当使用字节流读取文本文件时，可能会有一个小问题。就是遇到中文字符时，可能不会显示完整的字符，那是因为一个中文字符可能占用多个字节存储。所以Java提供一些字符流类，以字符为单位读写数据，专门用于处理文本文件。
-3.1 字符输入流【Reader】java.io.Reader抽象类是表示用于读取字符流的所有类的超类，可以读取字符信息到内存中。它定义了字符输入流的基本共性功能方法。
-
-public void close() ：关闭此流并释放与此流相关联的任何系统资源。    
-public int read()： 从输入流读取一个字符。 
-public int read(char[] cbuf)： 从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。
-
-3.2 FileReader类java.io.FileReader类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
-
-小贴士：
-
-字符编码：字节与字符的对应规则。Windows系统的中文编码默认是GBK编码表。
-idea中UTF-8
-
-字节缓冲区：一个字节数组，用来临时存储字节数据。
-
-
-
-构造方法
-FileReader(File file)： 创建一个新的 FileReader ，给定要读取的File对象。   
-FileReader(String fileName)： 创建一个新的 FileReader ，给定要读取的文件的名称。  
-
-当你创建一个流对象时，必须传入一个文件路径。类似于FileInputStream 。
-
-构造举例，代码如下：
-
-public class FileReaderConstructor throws IOException&#123;    public static void main(String[] args) &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileReader fr = new FileReader(file);              // 使用文件名称创建流对象        FileReader fr = new FileReader(&quot;b.txt&quot;);    &#125;&#125;
-读取字符数据
-读取字符：read方法，每次可以读取一个字符的数据，提升为int类型，读取到文件末尾，返回-1，循环读取，代码使用演示：
-
-public class FRRead &#123;    public static void main(String[] args) throws IOException &#123;      	// 使用文件名称创建流对象       	FileReader fr = new FileReader(&quot;read.txt&quot;);      	// 定义变量，保存数据        int b ；        // 循环读取        while ((b = fr.read())!=-1) &#123;            System.out.println((char)b);        &#125;		// 关闭资源        fr.close();    &#125;&#125;输出结果：黑马程序员
-
-小贴士：虽然读取了一个字符，但是会自动提升为int类型。
-
-
-使用字符数组读取：read(char[] cbuf)，每次读取b的长度个字符到数组中，返回读取到的有效字符个数，读取到末尾时，返回-1 ，代码使用演示：
-
-public class FRRead &#123;    public static void main(String[] args) throws IOException &#123;      	// 使用文件名称创建流对象       	FileReader fr = new FileReader(&quot;read.txt&quot;);      	// 定义变量，保存有效字符个数        int len ；        // 定义字符数组，作为装字符数据的容器         char[] cbuf = new char[2];        // 循环读取        while ((len = fr.read(cbuf))!=-1) &#123;            System.out.println(new String(cbuf));        &#125;		// 关闭资源        fr.close();    &#125;&#125;输出结果：黑马程序员序
-获取有效的字符改进，代码使用演示：
-public class FISRead &#123;    public static void main(String[] args) throws IOException &#123;      	// 使用文件名称创建流对象       	FileReader fr = new FileReader(&quot;read.txt&quot;);      	// 定义变量，保存有效字符个数        int len ；        // 定义字符数组，作为装字符数据的容器        char[] cbuf = new char[2];        // 循环读取        while ((len = fr.read(cbuf))!=-1) &#123;            System.out.println(new String(cbuf,0,len));        &#125;    	// 关闭资源        fr.close();    &#125;&#125;输出结果：黑马程序员
-3.3 字符输出流【Writer】java.io.Writer抽象类是表示用于写出字符流的所有类的超类，将指定的字符信息写出到目的地。它定义了字节输出流的基本共性功能方法。
-
-void write(int c) 写入单个字符。
-void write(char[] cbuf)写入字符数组。 
-abstract  void write(char[] cbuf, int off, int len)写入字符数组的某一部分,off数组的开始索引,len写的字符个数。 
-void write(String str)写入字符串。 
-void write(String str, int off, int len) 写入字符串的某一部分,off字符串的开始索引,len写的字符个数。
-void flush()刷新该流的缓冲。  
-void close() 关闭此流，但要先刷新它。 
-
-3.4 FileWriter类java.io.FileWriter类是写出字符到文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
-构造方法
-FileWriter(File file)： 创建一个新的 FileWriter，给定要读取的File对象。   
-FileWriter(String fileName)： 创建一个新的 FileWriter，给定要读取的文件的名称。  
-
-当你创建一个流对象时，必须传入一个文件路径，类似于FileOutputStream。
-
-构造举例，代码如下：
-
-public class FileWriterConstructor &#123;    public static void main(String[] args) throws IOException &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileWriter fw = new FileWriter(file);              // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;b.txt&quot;);    &#125;&#125;
-基本写出数据写出字符：write(int b) 方法，每次可以写出一个字符数据，代码使用演示：
-public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);           	// 写出数据      	fw.write(97); // 写出第1个字符      	fw.write(&#x27;b&#x27;); // 写出第2个字符      	fw.write(&#x27;C&#x27;); // 写出第3个字符      	fw.write(30000); // 写出第4个字符，中文编码表中30000对应一个汉字。            	/*        【注意】关闭资源时,与FileOutputStream不同。      	 如果不关闭,数据只是保存到缓冲区，并未保存到文件。        */        // fw.close();    &#125;&#125;输出结果：abC田
-
-小贴士：
-
-虽然参数为int类型四个字节，但是只会保留一个字符的信息写出。
-未调用close方法，数据只是保存到了缓冲区，并未写出到文件中。
-
-
-关闭和刷新因为内置缓冲区的原因，如果不关闭输出流，无法写出字符到文件中。但是关闭的流对象，是无法继续写出数据的。如果我们既想写出数据，又想继续使用流，就需要flush 方法了。
-
-flush ：刷新缓冲区，流对象可以继续使用。
-close:先刷新缓冲区，然后通知系统释放资源。流对象不可以再被使用了。
-
-代码使用演示：
-public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);        // 写出数据，通过flush        fw.write(&#x27;刷&#x27;); // 写出第1个字符        fw.flush();        fw.write(&#x27;新&#x27;); // 继续写出第2个字符，写出成功        fw.flush();            	// 写出数据，通过close        fw.write(&#x27;关&#x27;); // 写出第1个字符        fw.close();        fw.write(&#x27;闭&#x27;); // 继续写出第2个字符,【报错】java.io.IOException: Stream closed        fw.close();    &#125;&#125;
-
-小贴士：即便是flush方法写出了数据，操作的最后还是要调用close方法，释放系统资源。
-
-写出其他数据
-写出字符数组 ：write(char[] cbuf) 和 write(char[] cbuf, int off, int len) ，每次可以写出字符数组中的数据，用法类似FileOutputStream，代码使用演示：
-
-public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);           	// 字符串转换为字节数组      	char[] chars = &quot;黑马程序员&quot;.toCharArray();            	// 写出字符数组      	fw.write(chars); // 黑马程序员        		// 写出从索引2开始，2个字节。索引2是&#x27;程&#x27;，两个字节，也就是&#x27;程序&#x27;。        fw.write(b,2,2); // 程序            	// 关闭资源        fos.close();    &#125;&#125;
-
-写出字符串：write(String str) 和 write(String str, int off, int len) ，每次可以写出字符串中的数据，更为方便，代码使用演示：
-
-public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);           	// 字符串      	String msg = &quot;黑马程序员&quot;;            	// 写出字符数组      	fw.write(msg); //黑马程序员      		// 写出从索引2开始，2个字节。索引2是&#x27;程&#x27;，两个字节，也就是&#x27;程序&#x27;。        fw.write(msg,2,2);	// 程序      	        // 关闭资源        fos.close();    &#125;&#125;
-
-续写和换行：操作类似于FileOutputStream。
-
-public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象，可以续写数据        FileWriter fw = new FileWriter(&quot;fw.txt&quot;，true);           	// 写出字符串        fw.write(&quot;黑马&quot;);      	// 写出换行      	fw.write(&quot;\r\n&quot;);      	// 写出字符串  		fw.write(&quot;程序员&quot;);      	// 关闭资源        fw.close();    &#125;&#125;输出结果:黑马程序员
-
-小贴士：字符流，只能操作文本文件，不能操作图片，视频等非文本文件。
-当我们单纯读或者写文本文件时  使用字符流 其他情况使用字节流
-
-4. IO异常的处理JDK7前处理之前的入门练习，我们一直把异常抛出，而实际开发中并不能这样处理，建议使用try...catch...finally 代码块，处理异常部分，代码使用演示：
-public class HandleException1 &#123;    public static void main(String[] args) &#123;      	// 声明变量        FileWriter fw = null;        try &#123;            //创建流对象            fw = new FileWriter(&quot;fw.txt&quot;);            // 写出数据            fw.write(&quot;黑马程序员&quot;); //黑马程序员        &#125; catch (IOException e) &#123;            e.printStackTrace();        &#125; finally &#123;            try &#123;                if (fw != null) &#123;                    fw.close();                &#125;            &#125; catch (IOException e) &#123;                e.printStackTrace();            &#125;        &#125;    &#125;&#125;
-JDK7的处理(扩展知识点了解内容)还可以使用JDK7优化后的try-with-resource 语句，该语句确保了每个资源在语句结束时关闭。所谓的资源（resource）是指在程序完成后，必须关闭的对象。
-格式：
-try (创建流对象语句，如果多个,使用&#x27;;&#x27;隔开) &#123;	// 读写数据&#125; catch (IOException e) &#123;	e.printStackTrace();&#125;
-代码使用演示：
-public class HandleException2 &#123;    public static void main(String[] args) &#123;      	// 创建流对象        try ( FileWriter fw = new FileWriter(&quot;fw.txt&quot;); ) &#123;            // 写出数据            fw.write(&quot;黑马程序员&quot;); //黑马程序员        &#125; catch (IOException e) &#123;            e.printStackTrace();        &#125;    &#125;&#125;
-JDK9的改进(扩展知识点了解内容)JDK9中try-with-resource 的改进，对于引入对象的方式，支持的更加简洁。被引入的对象，同样可以自动关闭，无需手动close，我们来了解一下格式。
-改进前格式：
-// 被final修饰的对象final Resource resource1 = new Resource(&quot;resource1&quot;);// 普通对象Resource resource2 = new Resource(&quot;resource2&quot;);// 引入方式：创建新的变量保存try (Resource r1 = resource1;     Resource r2 = resource2) &#123;     // 使用对象&#125;
-改进后格式：
-// 被final修饰的对象final Resource resource1 = new Resource(&quot;resource1&quot;);// 普通对象Resource resource2 = new Resource(&quot;resource2&quot;);// 引入方式：直接引入try (resource1; resource2) &#123;     // 使用对象&#125;
-改进后，代码使用演示：
-public class TryDemo &#123;    public static void main(String[] args) throws IOException &#123;       	// 创建流对象        final  FileReader fr  = new FileReader(&quot;in.txt&quot;);        FileWriter fw = new FileWriter(&quot;out.txt&quot;);       	// 引入到try中        try (fr; fw) &#123;          	// 定义变量            int b;          	// 读取数据          	while ((b = fr.read())!=-1) &#123;            	// 写出数据            	fw.write(b);          	&#125;        &#125; catch (IOException e) &#123;            e.printStackTrace();        &#125;    &#125;&#125;
-5. 综合练习练习1：拷贝文件夹public class Test01 &#123;    public static void main(String[] args) throws IOException &#123;        //拷贝一个文件夹，考虑子文件夹        //1.创建对象表示数据源        File src = new File(&quot;D:\\aaa\\src&quot;);        //2.创建对象表示目的地        File dest = new File(&quot;D:\\aaa\\dest&quot;);        //3.调用方法开始拷贝        copydir(src,dest);    &#125;    /*    * 作用：拷贝文件夹    * 参数一：数据源    * 参数二：目的地    *    * */    private static void copydir(File src, File dest) throws IOException &#123;        dest.mkdirs();        //递归        //1.进入数据源        File[] files = src.listFiles();        //2.遍历数组        for (File file : files) &#123;            if(file.isFile())&#123;                //3.判断文件，拷贝                FileInputStream fis = new FileInputStream(file);                FileOutputStream fos = new FileOutputStream(new File(dest,file.getName()));                byte[] bytes = new byte[1024];                int len;                while((len = fis.read(bytes)) != -1)&#123;                    fos.write(bytes,0,len);                &#125;                fos.close();                fis.close();            &#125;else &#123;                //4.判断文件夹，递归                copydir(file, new File(dest,file.getName()));            &#125;        &#125;    &#125;&#125;
-练习2：文件加密public class Test02 &#123;    public static void main(String[] args) throws IOException &#123;        /*            为了保证文件的安全性，就需要对原始文件进行加密存储，再使用的时候再对其进行解密处理。            加密原理：                对原始文件中的每一个字节数据进行更改，然后将更改以后的数据存储到新的文件中。            解密原理：                读取加密之后的文件，按照加密的规则反向操作，变成原始文件。             ^ : 异或                 两边相同：false                 两边不同：true                 0：false                 1：true               100:1100100               10: 1010               1100100             ^ 0001010             __________               1101110             ^ 0001010             __________               1100100        */    &#125;    public static void encryptionAndReduction(File src, File dest) throws IOException &#123;        FileInputStream fis = new FileInputStream(src);        FileOutputStream fos = new FileOutputStream(dest);        int b;        while ((b = fis.read()) != -1) &#123;            fos.write(b ^ 2);        &#125;        //4.释放资源        fos.close();        fis.close();    &#125;&#125;
-练习3：数字排序文本文件中有以下的数据：                2-1-9-4-7-8 将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9
-实现方式一：
-public class Test03 &#123;    public static void main(String[] args) throws IOException &#123;        /*            文本文件中有以下的数据：                2-1-9-4-7-8            将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9        */        //1.读取数据        FileReader fr = new FileReader(&quot;myio\\a.txt&quot;);        StringBuilder sb = new StringBuilder();        int ch;        while((ch = fr.read()) != -1)&#123;            sb.append((char)ch);        &#125;        fr.close();        System.out.println(sb);        //2.排序        String str = sb.toString();        String[] arrStr = str.split(&quot;-&quot;);//2-1-9-4-7-8        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();        for (String s : arrStr) &#123;            int i = Integer.parseInt(s);            list.add(i);        &#125;        Collections.sort(list);        System.out.println(list);        //3.写出        FileWriter fw = new FileWriter(&quot;myio\\a.txt&quot;);        for (int i = 0; i &lt; list.size(); i++) &#123;            if(i == list.size() - 1)&#123;                fw.write(list.get(i) + &quot;&quot;);            &#125;else&#123;                fw.write(list.get(i) + &quot;-&quot;);            &#125;        &#125;        fw.close();    &#125;&#125;
-实现方式二：
-public class Test04 &#123;    public static void main(String[] args) throws IOException &#123;        /*            文本文件中有以下的数据：                2-1-9-4-7-8            将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9           细节1：                文件中的数据不要换行            细节2:                bom头        */        //1.读取数据        FileReader fr = new FileReader(&quot;myio\\a.txt&quot;);        StringBuilder sb = new StringBuilder();        int ch;        while((ch = fr.read()) != -1)&#123;            sb.append((char)ch);        &#125;        fr.close();        System.out.println(sb);        //2.排序        Integer[] arr = Arrays.stream(sb.toString()                                      .split(&quot;-&quot;))            .map(Integer::parseInt)            .sorted()            .toArray(Integer[]::new);        //3.写出        FileWriter fw = new FileWriter(&quot;myio\\a.txt&quot;);        String s = Arrays.toString(arr).replace(&quot;, &quot;,&quot;-&quot;);        String result = s.substring(1, s.length() - 1);        fw.write(result);        fw.close();    &#125;&#125;
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1104,6 +824,349 @@ package com.itheima.mycountdownlatch;import java.util.concurrent.CountDownLatch;
 代码实现 : 
 package com.itheima.mysemaphore;import java.util.concurrent.Semaphore;public class MyRunnable implements Runnable &#123;    //1.获得管理员对象，    private Semaphore semaphore = new Semaphore(2);    @Override    public void run() &#123;        //2.获得通行证        try &#123;            semaphore.acquire();            //3.开始行驶            System.out.println(&quot;获得了通行证开始行驶&quot;);            Thread.sleep(2000);            System.out.println(&quot;归还通行证&quot;);            //4.归还通行证            semaphore.release();        &#125; catch (InterruptedException e) &#123;            e.printStackTrace();        &#125;    &#125;&#125;
 package com.itheima.mysemaphore;public class MySemaphoreDemo &#123;    public static void main(String[] args) &#123;        MyRunnable mr = new MyRunnable();        for (int i = 0; i &lt; 100; i++) &#123;            new Thread(mr).start();        &#125;    &#125;&#125;
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Mybatis-Plus</title>
+    <url>/2025/09/01/Mybatis-Plus/</url>
+    <content><![CDATA[Mybatis-Plus
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MCP</title>
+    <url>/2025/09/01/MCP/</url>
+    <content><![CDATA[MCP
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>IO流</title>
+    <url>/2025/04/10/IO%E6%B5%81-%E5%AD%97%E8%8A%82%E6%B5%81-%E5%AD%97%E7%AC%A6%E6%B5%81/</url>
+    <content><![CDATA[1. IO概述
+1.1 什么是IO生活中，你肯定经历过这样的场景。当你编辑一个文本文件，忘记了ctrl+s ，可能文件就白白编辑了。当你电脑上插入一个U盘，可以把一个视频，拷贝到你的电脑硬盘里。那么数据都是在哪些设备上的呢？键盘、内存、硬盘、外接设备等等。
+我们把这种数据的传输，可以看做是一种数据的流动，按照流动的方向，以内存为基准，分为输入input 和输出output ，即流向内存是输入流，流出内存的输出流。
+Java中I/O操作主要是指使用java.io包下的内容，进行输入、输出操作。输入也叫做读取数据，输出也叫做作写出数据。
+1.2 IO的分类根据数据的流向分为：输入流和输出流。
+
+输入流 ：把数据从其他设备上读取到内存中的流。 
+输出流 ：把数据从内存 中写出到其他设备上的流。
+
+格局数据的类型分为：字节流和字符流。
+
+字节流 ：以字节为单位，读写数据的流。
+字符流 ：以字符为单位，读写数据的流。
+
+1.3 IO的流向说明图解
+1.4 顶级父类们
+
+
+
+
+输入流
+输出流
+
+
+
+
+字节流
+字节输入流InputStream
+字节输出流OutputStream
+
+
+字符流
+字符输入流Reader
+字符输出流Writer
+
+
+
+
+2. 字节流2.1 一切皆为字节一切文件数据(文本、图片、视频等)在存储时，都是以二进制数字的形式保存，都一个一个的字节，那么传输时一样如此。所以，字节流可以传输任意文件数据。在操作流的时候，我们要时刻明确，无论使用什么样的流对象，底层传输的始终为二进制数据。
+2.2 字节输出流【OutputStream】java.io.OutputStream抽象类是表示字节输出流的所有类的超类，将指定的字节信息写出到目的地。它定义了字节输出流的基本共性功能方法。
+
+public void close() ：关闭此输出流并释放与此流相关联的任何系统资源。  
+public void flush() ：刷新此输出流并强制任何缓冲的输出字节被写出。  
+public void write(byte[] b)：将 b.length字节从指定的字节数组写入此输出流。  
+public void write(byte[] b, int off, int len) ：从指定的字节数组写入 len字节，从偏移量 off开始输出到此输出流。  
+public abstract void write(int b) ：将指定的字节输出流。
+
+
+小贴士：
+close方法，当完成流的操作时，必须调用此方法，释放系统资源。
+
+2.3 FileOutputStream类OutputStream有很多子类，我们从最简单的一个子类开始。
+java.io.FileOutputStream类是文件输出流，用于将数据写出到文件。
+构造方法
+public FileOutputStream(File file)：创建文件输出流以写入由指定的 File对象表示的文件。 
+public FileOutputStream(String name)： 创建文件输出流以指定的名称写入文件。  
+
+当你创建一个流对象时，必须传入一个文件路径。该路径下，如果没有这个文件，会创建该文件。如果有这个文件，会清空这个文件的数据。
+
+构造举例，代码如下：
+
+public class FileOutputStreamConstructor throws IOException &#123;    public static void main(String[] args) &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileOutputStream fos = new FileOutputStream(file);              // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;b.txt&quot;);    &#125;&#125;
+写出字节数据
+写出字节：write(int b) 方法，每次可以写出一个字节数据，代码使用演示：
+
+public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);           	// 写出数据      	fos.write(97); // 写出第1个字节      	fos.write(98); // 写出第2个字节      	fos.write(99); // 写出第3个字节      	// 关闭资源        fos.close();    &#125;&#125;输出结果：abc
+
+小贴士：
+
+虽然参数为int类型四个字节，但是只会保留一个字节的信息写出。
+流操作完毕后，必须释放系统资源，调用close方法，千万记得。
+
+
+
+写出字节数组：write(byte[] b)，每次可以写出数组中的数据，代码使用演示：
+
+public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);           	// 字符串转换为字节数组      	byte[] b = &quot;黑马程序员&quot;.getBytes();      	// 写出字节数组数据      	fos.write(b);      	// 关闭资源        fos.close();    &#125;&#125;输出结果：黑马程序员
+
+写出指定长度字节数组：write(byte[] b, int off, int len) ,每次写出从off索引开始，len个字节，代码使用演示：
+
+public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);           	// 字符串转换为字节数组      	byte[] b = &quot;abcde&quot;.getBytes();		// 写出从索引2开始，2个字节。索引2是c，两个字节，也就是cd。        fos.write(b,2,2);      	// 关闭资源        fos.close();    &#125;&#125;输出结果：cd
+数据追加续写经过以上的演示，每次程序运行，创建输出流对象，都会清空目标文件中的数据。如何保留目标文件中数据，还能继续添加新数据呢？
+
+public FileOutputStream(File file, boolean append)： 创建文件输出流以写入由指定的 File对象表示的文件。  
+public FileOutputStream(String name, boolean append)： 创建文件输出流以指定的名称写入文件。  
+
+这两个构造方法，参数中都需要传入一个boolean类型的值，true 表示追加数据，false 表示清空原有数据。这样创建的输出流对象，就可以指定是否追加续写了，代码使用演示：
+public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;，true);           	// 字符串转换为字节数组      	byte[] b = &quot;abcde&quot;.getBytes();		// 写出从索引2开始，2个字节。索引2是c，两个字节，也就是cd。        fos.write(b);      	// 关闭资源        fos.close();    &#125;&#125;文件操作前：cd文件操作后：cdabcde
+写出换行Windows系统里，换行符号是\r\n 。把
+以指定是否追加续写了，代码使用演示：
+public class FOSWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);        	// 定义字节数组      	byte[] words = &#123;97,98,99,100,101&#125;;      	// 遍历数组        for (int i = 0; i &lt; words.length; i++) &#123;          	// 写出一个字节            fos.write(words[i]);          	// 写出一个换行, 换行符号转成数组写出            fos.write(&quot;\r\n&quot;.getBytes());        &#125;      	// 关闭资源        fos.close();    &#125;&#125;输出结果：abcde
+
+
+回车符\r和换行符\n ：
+回车符：回到一行的开头（return）。
+换行符：下一行（newline）。
+
+
+系统中的换行：
+Windows系统里，每行结尾是 回车+换行 ，即\r\n；
+Unix系统里，每行结尾只有 换行 ，即\n；
+Mac系统里，每行结尾是 回车 ，即\r。从 Mac OS X开始与Linux统一。
+
+
+
+
+2.4 字节输入流【InputStream】java.io.InputStream抽象类是表示字节输入流的所有类的超类，可以读取字节信息到内存中。它定义了字节输入流的基本共性功能方法。
+
+public void close() ：关闭此输入流并释放与此流相关联的任何系统资源。    
+public abstract int read()： 从输入流读取数据的下一个字节。 
+public int read(byte[] b)： 从输入流中读取一些字节数，并将它们存储到字节数组 b中 。
+
+
+小贴士：
+close方法，当完成流的操作时，必须调用此方法，释放系统资源。
+
+2.5 FileInputStream类java.io.FileInputStream类是文件输入流，从文件中读取字节。
+构造方法
+FileInputStream(File file)： 通过打开与实际文件的连接来创建一个 FileInputStream ，该文件由文件系统中的 File对象 file命名。 
+FileInputStream(String name)： 通过打开与实际文件的连接来创建一个 FileInputStream ，该文件由文件系统中的路径名 name命名。  
+
+当你创建一个流对象时，必须传入一个文件路径。该路径下，如果没有该文件,会抛出FileNotFoundException 。
+
+构造举例，代码如下：
+
+public class FileInputStreamConstructor throws IOException&#123;    public static void main(String[] args) &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileInputStream fos = new FileInputStream(file);              // 使用文件名称创建流对象        FileInputStream fos = new FileInputStream(&quot;b.txt&quot;);    &#125;&#125;
+读取字节数据
+读取字节：read方法，每次可以读取一个字节的数据，提升为int类型，读取到文件末尾，返回-1，代码使用演示：
+
+public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;);      	// 读取数据，返回一个字节        int read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);        read = fis.read();        System.out.println((char) read);      	// 读取到末尾,返回-1       	read = fis.read();        System.out.println( read);		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcde-1
+循环改进读取方式，代码使用演示：
+public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;);      	// 定义变量，保存数据        int b ；        // 循环读取        while ((b = fis.read())!=-1) &#123;            System.out.println((char)b);        &#125;		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcde
+
+小贴士：
+
+虽然读取了一个字节，但是会自动提升为int类型。
+流操作完毕后，必须释放系统资源，调用close方法，千万记得。
+
+
+
+使用字节数组读取：read(byte[] b)，每次读取b的长度个字节到数组中，返回读取到的有效字节个数，读取到末尾时，返回-1 ，代码使用演示：
+
+public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象.       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;); // 文件中为abcde      	// 定义变量，作为有效个数        int len ；        // 定义字节数组，作为装字节数据的容器           byte[] b = new byte[2];        // 循环读取        while (( len= fis.read(b))!=-1) &#123;           	// 每次读取后,把数组变成字符串打印            System.out.println(new String(b));        &#125;		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcded
+错误数据d，是由于最后一次读取时，只读取一个字节e，数组中，上次读取的数据没有被完全替换，所以要通过len ，获取有效的字节，代码使用演示：
+public class FISRead &#123;    public static void main(String[] args) throws IOException&#123;      	// 使用文件名称创建流对象.       	FileInputStream fis = new FileInputStream(&quot;read.txt&quot;); // 文件中为abcde      	// 定义变量，作为有效个数        int len ；        // 定义字节数组，作为装字节数据的容器           byte[] b = new byte[2];        // 循环读取        while (( len= fis.read(b))!=-1) &#123;           	// 每次读取后,把数组的有效字节部分，变成字符串打印            System.out.println(new String(b，0，len));//  len 每次读取的有效字节个数        &#125;		// 关闭资源        fis.close();    &#125;&#125;输出结果：abcde
+
+小贴士：
+使用数组读取，每次读取多个字节，减少了系统间的IO操作次数，从而提高了读写的效率，建议开发中使用。
+
+2.6 字节流练习：图片复制复制原理图解
+案例实现复制图片文件，代码使用演示：
+public class Copy &#123;    public static void main(String[] args) throws IOException &#123;        // 1.创建流对象        // 1.1 指定数据源        FileInputStream fis = new FileInputStream(&quot;D:\\test.jpg&quot;);        // 1.2 指定目的地        FileOutputStream fos = new FileOutputStream(&quot;test_copy.jpg&quot;);        // 2.读写数据        // 2.1 定义数组        byte[] b = new byte[1024];        // 2.2 定义长度        int len;        // 2.3 循环读取        while ((len = fis.read(b))!=-1) &#123;            // 2.4 写出数据            fos.write(b, 0 , len);        &#125;        // 3.关闭资源        fos.close();        fis.close();    &#125;&#125;
+
+小贴士：
+流的关闭原则：先开后关，后开先关。
+
+3. 字符流当使用字节流读取文本文件时，可能会有一个小问题。就是遇到中文字符时，可能不会显示完整的字符，那是因为一个中文字符可能占用多个字节存储。所以Java提供一些字符流类，以字符为单位读写数据，专门用于处理文本文件。
+3.1 字符输入流【Reader】java.io.Reader抽象类是表示用于读取字符流的所有类的超类，可以读取字符信息到内存中。它定义了字符输入流的基本共性功能方法。
+
+public void close() ：关闭此流并释放与此流相关联的任何系统资源。    
+public int read()： 从输入流读取一个字符。 
+public int read(char[] cbuf)： 从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。
+
+3.2 FileReader类java.io.FileReader类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
+
+小贴士：
+
+字符编码：字节与字符的对应规则。Windows系统的中文编码默认是GBK编码表。
+idea中UTF-8
+
+字节缓冲区：一个字节数组，用来临时存储字节数据。
+
+
+
+构造方法
+FileReader(File file)： 创建一个新的 FileReader ，给定要读取的File对象。   
+FileReader(String fileName)： 创建一个新的 FileReader ，给定要读取的文件的名称。  
+
+当你创建一个流对象时，必须传入一个文件路径。类似于FileInputStream 。
+
+构造举例，代码如下：
+
+public class FileReaderConstructor throws IOException&#123;    public static void main(String[] args) &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileReader fr = new FileReader(file);              // 使用文件名称创建流对象        FileReader fr = new FileReader(&quot;b.txt&quot;);    &#125;&#125;
+读取字符数据
+读取字符：read方法，每次可以读取一个字符的数据，提升为int类型，读取到文件末尾，返回-1，循环读取，代码使用演示：
+
+public class FRRead &#123;    public static void main(String[] args) throws IOException &#123;      	// 使用文件名称创建流对象       	FileReader fr = new FileReader(&quot;read.txt&quot;);      	// 定义变量，保存数据        int b ；        // 循环读取        while ((b = fr.read())!=-1) &#123;            System.out.println((char)b);        &#125;		// 关闭资源        fr.close();    &#125;&#125;输出结果：黑马程序员
+
+小贴士：虽然读取了一个字符，但是会自动提升为int类型。
+
+
+使用字符数组读取：read(char[] cbuf)，每次读取b的长度个字符到数组中，返回读取到的有效字符个数，读取到末尾时，返回-1 ，代码使用演示：
+
+public class FRRead &#123;    public static void main(String[] args) throws IOException &#123;      	// 使用文件名称创建流对象       	FileReader fr = new FileReader(&quot;read.txt&quot;);      	// 定义变量，保存有效字符个数        int len ；        // 定义字符数组，作为装字符数据的容器         char[] cbuf = new char[2];        // 循环读取        while ((len = fr.read(cbuf))!=-1) &#123;            System.out.println(new String(cbuf));        &#125;		// 关闭资源        fr.close();    &#125;&#125;输出结果：黑马程序员序
+获取有效的字符改进，代码使用演示：
+public class FISRead &#123;    public static void main(String[] args) throws IOException &#123;      	// 使用文件名称创建流对象       	FileReader fr = new FileReader(&quot;read.txt&quot;);      	// 定义变量，保存有效字符个数        int len ；        // 定义字符数组，作为装字符数据的容器        char[] cbuf = new char[2];        // 循环读取        while ((len = fr.read(cbuf))!=-1) &#123;            System.out.println(new String(cbuf,0,len));        &#125;    	// 关闭资源        fr.close();    &#125;&#125;输出结果：黑马程序员
+3.3 字符输出流【Writer】java.io.Writer抽象类是表示用于写出字符流的所有类的超类，将指定的字符信息写出到目的地。它定义了字节输出流的基本共性功能方法。
+
+void write(int c) 写入单个字符。
+void write(char[] cbuf)写入字符数组。 
+abstract  void write(char[] cbuf, int off, int len)写入字符数组的某一部分,off数组的开始索引,len写的字符个数。 
+void write(String str)写入字符串。 
+void write(String str, int off, int len) 写入字符串的某一部分,off字符串的开始索引,len写的字符个数。
+void flush()刷新该流的缓冲。  
+void close() 关闭此流，但要先刷新它。 
+
+3.4 FileWriter类java.io.FileWriter类是写出字符到文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
+构造方法
+FileWriter(File file)： 创建一个新的 FileWriter，给定要读取的File对象。   
+FileWriter(String fileName)： 创建一个新的 FileWriter，给定要读取的文件的名称。  
+
+当你创建一个流对象时，必须传入一个文件路径，类似于FileOutputStream。
+
+构造举例，代码如下：
+
+public class FileWriterConstructor &#123;    public static void main(String[] args) throws IOException &#123;   	 	// 使用File对象创建流对象        File file = new File(&quot;a.txt&quot;);        FileWriter fw = new FileWriter(file);              // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;b.txt&quot;);    &#125;&#125;
+基本写出数据写出字符：write(int b) 方法，每次可以写出一个字符数据，代码使用演示：
+public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);           	// 写出数据      	fw.write(97); // 写出第1个字符      	fw.write(&#x27;b&#x27;); // 写出第2个字符      	fw.write(&#x27;C&#x27;); // 写出第3个字符      	fw.write(30000); // 写出第4个字符，中文编码表中30000对应一个汉字。            	/*        【注意】关闭资源时,与FileOutputStream不同。      	 如果不关闭,数据只是保存到缓冲区，并未保存到文件。        */        // fw.close();    &#125;&#125;输出结果：abC田
+
+小贴士：
+
+虽然参数为int类型四个字节，但是只会保留一个字符的信息写出。
+未调用close方法，数据只是保存到了缓冲区，并未写出到文件中。
+
+
+关闭和刷新因为内置缓冲区的原因，如果不关闭输出流，无法写出字符到文件中。但是关闭的流对象，是无法继续写出数据的。如果我们既想写出数据，又想继续使用流，就需要flush 方法了。
+
+flush ：刷新缓冲区，流对象可以继续使用。
+close:先刷新缓冲区，然后通知系统释放资源。流对象不可以再被使用了。
+
+代码使用演示：
+public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);        // 写出数据，通过flush        fw.write(&#x27;刷&#x27;); // 写出第1个字符        fw.flush();        fw.write(&#x27;新&#x27;); // 继续写出第2个字符，写出成功        fw.flush();            	// 写出数据，通过close        fw.write(&#x27;关&#x27;); // 写出第1个字符        fw.close();        fw.write(&#x27;闭&#x27;); // 继续写出第2个字符,【报错】java.io.IOException: Stream closed        fw.close();    &#125;&#125;
+
+小贴士：即便是flush方法写出了数据，操作的最后还是要调用close方法，释放系统资源。
+
+写出其他数据
+写出字符数组 ：write(char[] cbuf) 和 write(char[] cbuf, int off, int len) ，每次可以写出字符数组中的数据，用法类似FileOutputStream，代码使用演示：
+
+public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);           	// 字符串转换为字节数组      	char[] chars = &quot;黑马程序员&quot;.toCharArray();            	// 写出字符数组      	fw.write(chars); // 黑马程序员        		// 写出从索引2开始，2个字节。索引2是&#x27;程&#x27;，两个字节，也就是&#x27;程序&#x27;。        fw.write(b,2,2); // 程序            	// 关闭资源        fos.close();    &#125;&#125;
+
+写出字符串：write(String str) 和 write(String str, int off, int len) ，每次可以写出字符串中的数据，更为方便，代码使用演示：
+
+public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象        FileWriter fw = new FileWriter(&quot;fw.txt&quot;);           	// 字符串      	String msg = &quot;黑马程序员&quot;;            	// 写出字符数组      	fw.write(msg); //黑马程序员      		// 写出从索引2开始，2个字节。索引2是&#x27;程&#x27;，两个字节，也就是&#x27;程序&#x27;。        fw.write(msg,2,2);	// 程序      	        // 关闭资源        fos.close();    &#125;&#125;
+
+续写和换行：操作类似于FileOutputStream。
+
+public class FWWrite &#123;    public static void main(String[] args) throws IOException &#123;        // 使用文件名称创建流对象，可以续写数据        FileWriter fw = new FileWriter(&quot;fw.txt&quot;，true);           	// 写出字符串        fw.write(&quot;黑马&quot;);      	// 写出换行      	fw.write(&quot;\r\n&quot;);      	// 写出字符串  		fw.write(&quot;程序员&quot;);      	// 关闭资源        fw.close();    &#125;&#125;输出结果:黑马程序员
+
+小贴士：字符流，只能操作文本文件，不能操作图片，视频等非文本文件。
+当我们单纯读或者写文本文件时  使用字符流 其他情况使用字节流
+
+4. IO异常的处理JDK7前处理之前的入门练习，我们一直把异常抛出，而实际开发中并不能这样处理，建议使用try...catch...finally 代码块，处理异常部分，代码使用演示：
+public class HandleException1 &#123;    public static void main(String[] args) &#123;      	// 声明变量        FileWriter fw = null;        try &#123;            //创建流对象            fw = new FileWriter(&quot;fw.txt&quot;);            // 写出数据            fw.write(&quot;黑马程序员&quot;); //黑马程序员        &#125; catch (IOException e) &#123;            e.printStackTrace();        &#125; finally &#123;            try &#123;                if (fw != null) &#123;                    fw.close();                &#125;            &#125; catch (IOException e) &#123;                e.printStackTrace();            &#125;        &#125;    &#125;&#125;
+JDK7的处理(扩展知识点了解内容)还可以使用JDK7优化后的try-with-resource 语句，该语句确保了每个资源在语句结束时关闭。所谓的资源（resource）是指在程序完成后，必须关闭的对象。
+格式：
+try (创建流对象语句，如果多个,使用&#x27;;&#x27;隔开) &#123;	// 读写数据&#125; catch (IOException e) &#123;	e.printStackTrace();&#125;
+代码使用演示：
+public class HandleException2 &#123;    public static void main(String[] args) &#123;      	// 创建流对象        try ( FileWriter fw = new FileWriter(&quot;fw.txt&quot;); ) &#123;            // 写出数据            fw.write(&quot;黑马程序员&quot;); //黑马程序员        &#125; catch (IOException e) &#123;            e.printStackTrace();        &#125;    &#125;&#125;
+JDK9的改进(扩展知识点了解内容)JDK9中try-with-resource 的改进，对于引入对象的方式，支持的更加简洁。被引入的对象，同样可以自动关闭，无需手动close，我们来了解一下格式。
+改进前格式：
+// 被final修饰的对象final Resource resource1 = new Resource(&quot;resource1&quot;);// 普通对象Resource resource2 = new Resource(&quot;resource2&quot;);// 引入方式：创建新的变量保存try (Resource r1 = resource1;     Resource r2 = resource2) &#123;     // 使用对象&#125;
+改进后格式：
+// 被final修饰的对象final Resource resource1 = new Resource(&quot;resource1&quot;);// 普通对象Resource resource2 = new Resource(&quot;resource2&quot;);// 引入方式：直接引入try (resource1; resource2) &#123;     // 使用对象&#125;
+改进后，代码使用演示：
+public class TryDemo &#123;    public static void main(String[] args) throws IOException &#123;       	// 创建流对象        final  FileReader fr  = new FileReader(&quot;in.txt&quot;);        FileWriter fw = new FileWriter(&quot;out.txt&quot;);       	// 引入到try中        try (fr; fw) &#123;          	// 定义变量            int b;          	// 读取数据          	while ((b = fr.read())!=-1) &#123;            	// 写出数据            	fw.write(b);          	&#125;        &#125; catch (IOException e) &#123;            e.printStackTrace();        &#125;    &#125;&#125;
+5. 综合练习练习1：拷贝文件夹public class Test01 &#123;    public static void main(String[] args) throws IOException &#123;        //拷贝一个文件夹，考虑子文件夹        //1.创建对象表示数据源        File src = new File(&quot;D:\\aaa\\src&quot;);        //2.创建对象表示目的地        File dest = new File(&quot;D:\\aaa\\dest&quot;);        //3.调用方法开始拷贝        copydir(src,dest);    &#125;    /*    * 作用：拷贝文件夹    * 参数一：数据源    * 参数二：目的地    *    * */    private static void copydir(File src, File dest) throws IOException &#123;        dest.mkdirs();        //递归        //1.进入数据源        File[] files = src.listFiles();        //2.遍历数组        for (File file : files) &#123;            if(file.isFile())&#123;                //3.判断文件，拷贝                FileInputStream fis = new FileInputStream(file);                FileOutputStream fos = new FileOutputStream(new File(dest,file.getName()));                byte[] bytes = new byte[1024];                int len;                while((len = fis.read(bytes)) != -1)&#123;                    fos.write(bytes,0,len);                &#125;                fos.close();                fis.close();            &#125;else &#123;                //4.判断文件夹，递归                copydir(file, new File(dest,file.getName()));            &#125;        &#125;    &#125;&#125;
+练习2：文件加密public class Test02 &#123;    public static void main(String[] args) throws IOException &#123;        /*            为了保证文件的安全性，就需要对原始文件进行加密存储，再使用的时候再对其进行解密处理。            加密原理：                对原始文件中的每一个字节数据进行更改，然后将更改以后的数据存储到新的文件中。            解密原理：                读取加密之后的文件，按照加密的规则反向操作，变成原始文件。             ^ : 异或                 两边相同：false                 两边不同：true                 0：false                 1：true               100:1100100               10: 1010               1100100             ^ 0001010             __________               1101110             ^ 0001010             __________               1100100        */    &#125;    public static void encryptionAndReduction(File src, File dest) throws IOException &#123;        FileInputStream fis = new FileInputStream(src);        FileOutputStream fos = new FileOutputStream(dest);        int b;        while ((b = fis.read()) != -1) &#123;            fos.write(b ^ 2);        &#125;        //4.释放资源        fos.close();        fis.close();    &#125;&#125;
+练习3：数字排序文本文件中有以下的数据：                2-1-9-4-7-8 将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9
+实现方式一：
+public class Test03 &#123;    public static void main(String[] args) throws IOException &#123;        /*            文本文件中有以下的数据：                2-1-9-4-7-8            将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9        */        //1.读取数据        FileReader fr = new FileReader(&quot;myio\\a.txt&quot;);        StringBuilder sb = new StringBuilder();        int ch;        while((ch = fr.read()) != -1)&#123;            sb.append((char)ch);        &#125;        fr.close();        System.out.println(sb);        //2.排序        String str = sb.toString();        String[] arrStr = str.split(&quot;-&quot;);//2-1-9-4-7-8        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();        for (String s : arrStr) &#123;            int i = Integer.parseInt(s);            list.add(i);        &#125;        Collections.sort(list);        System.out.println(list);        //3.写出        FileWriter fw = new FileWriter(&quot;myio\\a.txt&quot;);        for (int i = 0; i &lt; list.size(); i++) &#123;            if(i == list.size() - 1)&#123;                fw.write(list.get(i) + &quot;&quot;);            &#125;else&#123;                fw.write(list.get(i) + &quot;-&quot;);            &#125;        &#125;        fw.close();    &#125;&#125;
+实现方式二：
+public class Test04 &#123;    public static void main(String[] args) throws IOException &#123;        /*            文本文件中有以下的数据：                2-1-9-4-7-8            将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9           细节1：                文件中的数据不要换行            细节2:                bom头        */        //1.读取数据        FileReader fr = new FileReader(&quot;myio\\a.txt&quot;);        StringBuilder sb = new StringBuilder();        int ch;        while((ch = fr.read()) != -1)&#123;            sb.append((char)ch);        &#125;        fr.close();        System.out.println(sb);        //2.排序        Integer[] arr = Arrays.stream(sb.toString()                                      .split(&quot;-&quot;))            .map(Integer::parseInt)            .sorted()            .toArray(Integer[]::new);        //3.写出        FileWriter fw = new FileWriter(&quot;myio\\a.txt&quot;);        String s = Arrays.toString(arr).replace(&quot;, &quot;,&quot;-&quot;);        String result = s.substring(1, s.length() - 1);        fw.write(result);        fw.close();    &#125;&#125;
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpringBoot3</title>
+    <url>/2025/09/01/SpringBoot3/</url>
+    <content><![CDATA[SpringBoot3
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpringCache</title>
+    <url>/2025/09/01/SpringCache/</url>
+    <content><![CDATA[SpringCache
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpringCloud</title>
+    <url>/2025/09/01/SpringCloud/</url>
+    <content><![CDATA[SpringCloud在线文档：https://b11et3un53m.feishu.cn/wiki/FJAnwOhpIihMkLkOKQocdWZ7nUchttps://b11et3un53m.feishu.cn/wiki/FJAnwOhpIihMkLkOKQocdWZ7nUc
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>八股</title>
+    <url>/2025/09/01/%E5%85%AB%E8%82%A1/</url>
+    <content><![CDATA[八股
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Vue3</title>
+    <url>/2025/09/01/Vue3/</url>
+    <content><![CDATA[Vue3
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1502,6 +1565,380 @@ public class Cooker extends Thread &#123;    private ArrayBlockingQueue&lt;Strin
 
 
 6.多线程的书写套路1.循环2.同步代码块3.判断共享数据是否到了末尾（到了末尾）4,判断共享数据是否到了末尾（没有到末尾，执行核心逻辑）
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>大模型开发</title>
+    <url>/2025/09/01/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[在线文档：https://b11et3un53m.feishu.cn/wiki/DESQw9K4ji6Nf4kd9fzcwJTunmb
+AI发展
+
+符号主义
+机器学习
+深度学习 -&gt; 自然语言处理(NLP) -&gt; 大语言模型(LLM)大语言模型**Transformer**
+在**自然语言处理**(Natural Language Processing,**NLP**)中，有一项关键技术叫**Transformer**,这是一种先进的深度学习的**神经网络模型**，是现如今AI高速发展的最主要原因。我们所熟知的**大模型**(Large Language Models,LLM),例如**GPT**、**DeepSeek**)底层都是采用Transformer神经网络模型。
+底层原理
+T：基于Transformer的神经网络
+P：通过大量数据预训练，掌握自然语言规律
+G：基于上文计算概率，生成下一个token
+模型部署方案
+三种方案
+
+
+云部署
+
+
+优点
+前期成本低
+部署维护简单
+弹性扩展
+全球访问DNS
+
+
+缺点
+数据隐私
+网络依赖
+长期成本高
+
+
+
+
+本地部署
+
+
+优点
+数据安全
+不依赖外部网络
+长期成本低
+高度定制
+
+
+缺点
+初始成本高
+维护复杂
+部署周期长
+
+
+
+
+开放API
+
+
+优点
+前期成本极低
+无需部署
+无需维护
+全球访问
+
+
+缺点
+数据隐私
+网络依赖
+长期成本高
+定制限制云服务
+
+
+
+
+登录阿里云平台：https://www.aliyun.com/benefit?utm_content=se_1019887613
+打开阿里云百炼：
+打开控制台：
+创建api-key：
+体验模型将会消耗TokensApifox调用模型-H：添加请求头本地部署本地部署最简单的一种方案就是使用ollama,官网地址：https://ollama.com/
+
+下载ollama：
+
+
+
+
+选择模型下载：
+
+
+
+选择模型版本（参数越大，能力越强，但所需显卡算力要求大），复制命令到cmd下载：
+
+
+
+Apifox调用本地部署模型
+
+在本地成功部署模型后，可进入ollama官网，在此页面往下滑，有个Blog，再点击thinking，继续往下滑，直到出现
+
+
+
+
+
+
+调用大模型
+
+遵循openAI规范（引领者）
+
+
+
+常见参数
+响应数据
+token是什么在大语言模型中，Token是大模型处理文本的基本单位，
+可以理解为模型“看得懂”的最小文本片段
+用户输入的内容都需要转换成token，才能让大模型更好的处理
+英文：一个token = 4个字符
+中文：一个汉字 ≈ 1~2个token
+大模型应用
+
+注意区分产品（网页端对话的那种全叫产品）和大模型
+
+
+
+
+AI应用开发技术架构
+SpringAI
+
+新项目推荐springAI，老项目推荐LangChain4j
+
+
+对话机器人
+
+openAI访问大模型的规范
+
+操作步骤
+
+引入依赖
+引入管理依赖：管理与springAI有关的所有依赖以及指定版本
+引入（基于ollama）模型起步依赖
+
+
+
+
+
+配置模型
+基于ollama
+基于openAI
+
+
+
+
+
+配置客户端
+
+
+实例
+
+新建项目（利用脚手架快速搭建）
+
+
+
+引依赖
+
+
+
+配置模型
+
+
+
+配置客户端
+
+
+
+
+使用
+整段生成再输出
+
+
+
+
+2. 流式输出Flux对象
+
+会话日志
+
+SpringAI利用AOP原理提供了AI会话时的拦截、增强等功能，也就是Advisor。
+spring中已经封装好了各种Advisor
+
+
+
+
+跨域
+会话记忆
+
+大模型是不具备记忆能力的，要想让大模型记住之前聊天的内容，唯一的办法就是把之前聊天的内容与新的提示词一起发给大模型。
+
+LangChain4j
+会话功能
+快速入门
+
+引入Langchain4j依赖
+构建openAiChatModel对象
+调用chat方法与大模型交互
+
+
+
+baseUrl获取：
+
+
+
+配了API KEY后一定要重启idea，因为还没生效，idea启动默认会读一次系统环境变量
+
+打印日志信息
+Spring整合LangChain4j
+打印日志信息
+AiServices工具类
+
+传统model.chat方法在之后进行会话记忆等功能实现复杂，利用其提供的AiServices工具类更加方便
+
+
+
+
+声明式使用
+为接口创建代理对象，并将返回结果注入IOC容器
+wiringModel = AiServiceWiringMode.EXPLICIT，表示创建完代理对象后选择手动装配
+chatModel 表示选择哪个模型，langchain4j默认注入openAiChatModel
+
+
+
+
+
+当然也可以不添加值，会默认自动装配
+
+
+流式调用
+
+出现乱码可以对接口进行指定编码，produces
+
+
+消息注解
+
+用于限定AI回答的范围
+
+
+会话记忆
+
+大模型是不具备记忆能力的，要想让大模型记住之前聊天的内容，唯一的办法就是把之前聊天的内容与新的提示词一起发给大模型。
+
+
+
+langchain4j提供了一个接口用于定义会话记忆对象
+
+
+
+会话隔离
+
+原理
+
+
+
+会话记忆持久化
+
+刚才我们做的会话记忆，只要后端重启，会话记忆就没有了
+原因
+
+
+
+基于redis做持久化
+
+
+
+
+
+
+RAG知识库RAG,Retrieval Augmented Generation,检索增强生成。通过检索外部知识库的方式增强大模型的生成能力。
+原理
+
+
+向量数据库：
+Milvus、Chroma、Pinecone
+RedisSearch(Reids)、pgvector(PostgreSQL)
+
+
+
+
+
+如何往向量数据库中存储数据
+
+
+
+如何检索向量数据库
+
+
+
+总结
+两个向量的余弦相似度越高，说明向量对应的文本相似度越高
+向量数据库使用流程
+借助于向量模型，把文档知识数据向量化后存储到向量数据库
+用户输入的内容，借助于向量模型转化为向量后，与数据库中的向量通过计算余弦相似度的方式，找出相似度比较高的文本片段
+
+
+
+
+
+快速入门
+存储（构建向量数据库操作对象）
+
+引入依赖
+
+
+
+加载知识数据文档
+
+
+
+构建向量数据库操作对象
+
+
+
+把文档切割、向量化并存储到向量数据库中
+
+
+
+
+检索（构建向量数据库检索对象）
+
+构建向量数据库检索对象
+
+
+
+配置向量数据库检索对象
+
+
+
+
+外挂知识库示例
+
+
+
+
+
+核心API
+文档加载器
+文档解析器
+文档分割器
+向量模型
+向量数据库默认的向量数据库是基于内存的，重启就丢失了，需要持久化
+
+
+
+为了能正确加载，需要做个配置
+
+
+
+
+所以当向量库中有了数据后，这个@Bean就可以注释掉了
+
+
+
+Tools工具
+
+
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>定时任务框架</title>
+    <url>/2025/09/01/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[定时任务框架
 ]]></content>
       <categories>
         <category>Java</category>
