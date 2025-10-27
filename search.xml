@@ -37,14 +37,6 @@
       </categories>
   </entry>
   <entry>
-    <title>第二篇文章</title>
-    <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[第二篇文章]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-  </entry>
-  <entry>
     <title>异常&amp;File</title>
     <url>/2025/04/10/IO-%E5%BC%82%E5%B8%B8-File-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B/</url>
     <content><![CDATA[1. 异常1.1 异常概念异常，就是不正常的意思。在生活中:医生说,你的身体某个部位有异常,该部位和正常相比有点不同,该部位的功能将受影响.在程序中的意思就是：
@@ -276,6 +268,14 @@ public class Test6 &#123;    public static void main(String[] args) throws IOExc
 ]]></content>
       <categories>
         <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第二篇文章</title>
+    <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[第二篇文章]]></content>
+      <categories>
+        <category>C++</category>
       </categories>
   </entry>
   <entry>
@@ -830,24 +830,6 @@ package com.itheima.mysemaphore;public class MySemaphoreDemo &#123;    public st
       </categories>
   </entry>
   <entry>
-    <title>Mybatis-Plus</title>
-    <url>/2025/09/01/Mybatis-Plus/</url>
-    <content><![CDATA[Mybatis-Plus
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MCP</title>
-    <url>/2025/09/01/MCP/</url>
-    <content><![CDATA[MCP
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>IO流</title>
     <url>/2025/04/10/IO%E6%B5%81-%E5%AD%97%E8%8A%82%E6%B5%81-%E5%AD%97%E7%AC%A6%E6%B5%81/</url>
     <content><![CDATA[1. IO概述
@@ -1128,9 +1110,27 @@ public class Test04 &#123;    public static void main(String[] args) throws IOEx
       </categories>
   </entry>
   <entry>
+    <title>Mybatis-Plus</title>
+    <url>/2025/09/01/Mybatis-Plus/</url>
+    <content><![CDATA[Mybatis-Plus
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
     <title>SpringBoot3</title>
     <url>/2025/09/01/SpringBoot3/</url>
     <content><![CDATA[SpringBoot3
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MCP</title>
+    <url>/2025/09/01/MCP/</url>
+    <content><![CDATA[MCP
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1155,18 +1155,18 @@ public class Test04 &#123;    public static void main(String[] args) throws IOEx
       </categories>
   </entry>
   <entry>
-    <title>八股</title>
-    <url>/2025/09/01/%E5%85%AB%E8%82%A1/</url>
-    <content><![CDATA[八股
+    <title>Vue3</title>
+    <url>/2025/09/01/Vue3/</url>
+    <content><![CDATA[Vue3
 ]]></content>
       <categories>
         <category>Java</category>
       </categories>
   </entry>
   <entry>
-    <title>Vue3</title>
-    <url>/2025/09/01/Vue3/</url>
-    <content><![CDATA[Vue3
+    <title>八股</title>
+    <url>/2025/09/01/%E5%85%AB%E8%82%A1/</url>
+    <content><![CDATA[八股
 ]]></content>
       <categories>
         <category>Java</category>
