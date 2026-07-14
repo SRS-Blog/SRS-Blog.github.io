@@ -1362,3 +1362,7 @@ svg.icon.faa-tada {
   background: url(/img/srs.jpg) no-repeat center center;
   background-size: cover;
 }
+/* 首页背景图 bac-5.webp 加载完成前的兜底色(取自图片主色)，消除首屏白屏闪烁 */
+#web_bg {
+  background-color: rgb(110, 103, 121) !important;
+}
