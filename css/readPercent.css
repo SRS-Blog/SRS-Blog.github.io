@@ -1,4 +1,4 @@
-/* 返回顶部按钮 #go-up：平时显示滚动百分比数字，鼠标悬停显示 ↑ 箭头 */
+/* 返回顶部按钮 #go-up：平时显示滚动百分比数字；滚到底部(100%)或鼠标悬停时显示 ↑ 箭头 */
 
 /* 平时：隐藏箭头、显示居中的百分比数字 */
 button#go-up i {
@@ -17,10 +17,12 @@ button#go-up #percent span {
   margin-left: 1px;
 }
 
-/* 悬停：显示箭头、隐藏百分比 */
+/* 滚到底部(100%) 或 悬停：显示 ↑ 箭头、隐藏百分比 */
+button#go-up.at-bottom i,
 button#go-up:hover i {
   display: inline-block;
 }
+button#go-up.at-bottom #percent,
 button#go-up:hover #percent {
   display: none;
 }
