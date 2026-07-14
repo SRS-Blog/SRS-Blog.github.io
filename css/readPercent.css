@@ -11,9 +11,9 @@ button#go-up #percent {
   line-height: 35px;   /* 按钮高 35px，行高等高实现垂直居中 */
   text-align: center;
 }
-/* 百分比里的 % 号小一号 */
+/* 百分比里的 % 号，与数字同大 */
 button#go-up #percent span {
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 1px;
 }
 
