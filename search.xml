@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第一篇文章</title>
-    <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[第一篇文章内容
-
-
-        
-          时间轴样式
-
-        
-      
-        
-          2020-07-24 2.6.6 -&gt; 3.0
-
-        
-        
-如果有 hexo-lazyload-image 插件，需要删除并重新安装最新版本，设置 lazyload.isSPA: true。
-2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 use_cdn: true 则需要删除。
-2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。
-2.x 版本的置顶 top: true 改为了 pin: true，并且同样适用于 layout: page 的页面。
-如果使用了 hexo-offline 插件，建议卸载，3.0 版本默认开启了 pjax 服务。
-
-
-      ]]></content>
-      <categories>
-        <category>PYTHON</category>
-      </categories>
-  </entry>
-  <entry>
     <title>第三篇文章</title>
     <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%89%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[第三篇文章]]></content>
@@ -279,6 +251,34 @@ public class Test6 &#123;    public static void main(String[] args) throws IOExc
       </categories>
   </entry>
   <entry>
+    <title>第一篇文章</title>
+    <url>/2025/04/08/2025-4-8-%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[第一篇文章内容
+
+
+        
+          时间轴样式
+
+        
+      
+        
+          2020-07-24 2.6.6 -&gt; 3.0
+
+        
+        
+如果有 hexo-lazyload-image 插件，需要删除并重新安装最新版本，设置 lazyload.isSPA: true。
+2.x 版本的 css 和 js 不适用于 3.x 版本，如果使用了 use_cdn: true 则需要删除。
+2.x 版本的 fancybox 标签在 3.x 版本中被重命名为 gallery 。
+2.x 版本的置顶 top: true 改为了 pin: true，并且同样适用于 layout: page 的页面。
+如果使用了 hexo-offline 插件，建议卸载，3.0 版本默认开启了 pjax 服务。
+
+
+      ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
+  </entry>
+  <entry>
     <title>IO流--扩展流</title>
     <url>/2025/04/10/IO%E6%B5%81-%E5%85%B6%E4%BB%96%E6%B5%81/</url>
     <content><![CDATA[1. 缓冲流昨天学习了基本的一些流，作为IO流的入门，今天我们要见识一些更强大的流。比如能够高效读写的缓冲流，能够转换编码的转换流，能够持久化存储对象的序列化流等等。这些功能更为强大的流，都是在基本的流对象基础之上创建而来的，就像穿上铠甲的武士一样，相当于是对基本流对象的一种增强。
@@ -525,15 +525,6 @@ public class CommonsIODemo1 &#123;    public static void main(String[] args) thr
 3，右键点击add as a library
 代码示例：
 public class Test1 &#123;    public static void main(String[] args) &#123;    /*        FileUtil类:                file：根据参数创建一个file对象                touch：根据参数创建文件                writeLines：把集合中的数据写出到文件中，覆盖模式。                appendLines：把集合中的数据写出到文件中，续写模式。                readLines：指定字符编码，把文件中的数据，读到集合中。                readUtf8Lines：按照UTF-8的形式，把文件中的数据，读到集合中                copy：拷贝文件或者文件夹    */       /* File file1 = FileUtil.file(&quot;D:\\&quot;, &quot;aaa&quot;, &quot;bbb&quot;, &quot;a.txt&quot;);        System.out.println(file1);//D:\aaa\bbb\a.txt        File touch = FileUtil.touch(file1);        System.out.println(touch);        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        File file2 = FileUtil.writeLines(list, &quot;D:\\a.txt&quot;, &quot;UTF-8&quot;);        System.out.println(file2);*/      /*  ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        list.add(&quot;aaa&quot;);        File file3 = FileUtil.appendLines(list, &quot;D:\\a.txt&quot;, &quot;UTF-8&quot;);        System.out.println(file3);*/        List&lt;String&gt; list = FileUtil.readLines(&quot;D:\\a.txt&quot;, &quot;UTF-8&quot;);        System.out.println(list);    &#125;&#125;
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MCP</title>
-    <url>/2025/09/01/MCP/</url>
-    <content><![CDATA[MCP
 ]]></content>
       <categories>
         <category>Java</category>
@@ -814,6 +805,33 @@ public class TryDemo &#123;    public static void main(String[] args) throws IOE
 public class Test03 &#123;    public static void main(String[] args) throws IOException &#123;        /*            文本文件中有以下的数据：                2-1-9-4-7-8            将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9        */        //1.读取数据        FileReader fr = new FileReader(&quot;myio\\a.txt&quot;);        StringBuilder sb = new StringBuilder();        int ch;        while((ch = fr.read()) != -1)&#123;            sb.append((char)ch);        &#125;        fr.close();        System.out.println(sb);        //2.排序        String str = sb.toString();        String[] arrStr = str.split(&quot;-&quot;);//2-1-9-4-7-8        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();        for (String s : arrStr) &#123;            int i = Integer.parseInt(s);            list.add(i);        &#125;        Collections.sort(list);        System.out.println(list);        //3.写出        FileWriter fw = new FileWriter(&quot;myio\\a.txt&quot;);        for (int i = 0; i &lt; list.size(); i++) &#123;            if(i == list.size() - 1)&#123;                fw.write(list.get(i) + &quot;&quot;);            &#125;else&#123;                fw.write(list.get(i) + &quot;-&quot;);            &#125;        &#125;        fw.close();    &#125;&#125;
 实现方式二：
 public class Test04 &#123;    public static void main(String[] args) throws IOException &#123;        /*            文本文件中有以下的数据：                2-1-9-4-7-8            将文件中的数据进行排序，变成以下的数据：                1-2-4-7-8-9           细节1：                文件中的数据不要换行            细节2:                bom头        */        //1.读取数据        FileReader fr = new FileReader(&quot;myio\\a.txt&quot;);        StringBuilder sb = new StringBuilder();        int ch;        while((ch = fr.read()) != -1)&#123;            sb.append((char)ch);        &#125;        fr.close();        System.out.println(sb);        //2.排序        Integer[] arr = Arrays.stream(sb.toString()                                      .split(&quot;-&quot;))            .map(Integer::parseInt)            .sorted()            .toArray(Integer[]::new);        //3.写出        FileWriter fw = new FileWriter(&quot;myio\\a.txt&quot;);        String s = Arrays.toString(arr).replace(&quot;, &quot;,&quot;-&quot;);        String result = s.substring(1, s.length() - 1);        fw.write(result);        fw.close();    &#125;&#125;
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Mybatis-Plus</title>
+    <url>/2025/09/01/Mybatis-Plus/</url>
+    <content><![CDATA[Mybatis-Plus
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MCP</title>
+    <url>/2025/09/01/MCP/</url>
+    <content><![CDATA[MCP
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpringBoot3</title>
+    <url>/2025/09/01/SpringBoot3/</url>
+    <content><![CDATA[SpringBoot3
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1119,15 +1137,6 @@ package com.itheima.mysemaphore;public class MySemaphoreDemo &#123;    public st
       </categories>
   </entry>
   <entry>
-    <title>SpringBoot3</title>
-    <url>/2025/09/01/SpringBoot3/</url>
-    <content><![CDATA[SpringBoot3
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>SpringCache</title>
     <url>/2025/09/01/SpringCache/</url>
     <content><![CDATA[SpringCache
@@ -1164,9 +1173,365 @@ package com.itheima.mysemaphore;public class MySemaphoreDemo &#123;    public st
       </categories>
   </entry>
   <entry>
-    <title>Mybatis-Plus</title>
-    <url>/2025/09/01/Mybatis-Plus/</url>
-    <content><![CDATA[Mybatis-Plus
+    <title>大模型开发</title>
+    <url>/2025/09/01/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[在线文档：https://b11et3un53m.feishu.cn/wiki/DESQw9K4ji6Nf4kd9fzcwJTunmb
+AI发展
+
+符号主义
+机器学习
+深度学习 -&gt; 自然语言处理(NLP) -&gt; 大语言模型(LLM)大语言模型**Transformer**
+在**自然语言处理**(Natural Language Processing,**NLP**)中，有一项关键技术叫**Transformer**,这是一种先进的深度学习的**神经网络模型**，是现如今AI高速发展的最主要原因。我们所熟知的**大模型**(Large Language Models,LLM),例如**GPT**、**DeepSeek**)底层都是采用Transformer神经网络模型。
+底层原理
+T：基于Transformer的神经网络
+P：通过大量数据预训练，掌握自然语言规律
+G：基于上文计算概率，生成下一个token
+模型部署方案
+三种方案
+
+
+云部署
+
+
+优点
+前期成本低
+部署维护简单
+弹性扩展
+全球访问DNS
+
+
+缺点
+数据隐私
+网络依赖
+长期成本高
+
+
+
+
+本地部署
+
+
+优点
+数据安全
+不依赖外部网络
+长期成本低
+高度定制
+
+
+缺点
+初始成本高
+维护复杂
+部署周期长
+
+
+
+
+开放API
+
+
+优点
+前期成本极低
+无需部署
+无需维护
+全球访问
+
+
+缺点
+数据隐私
+网络依赖
+长期成本高
+定制限制云服务
+
+
+
+
+登录阿里云平台：https://www.aliyun.com/benefit?utm_content=se_1019887613
+打开阿里云百炼：
+打开控制台：
+创建api-key：
+体验模型将会消耗TokensApifox调用模型-H：添加请求头本地部署本地部署最简单的一种方案就是使用ollama,官网地址：https://ollama.com/
+
+下载ollama：
+
+
+
+
+选择模型下载：
+
+
+
+选择模型版本（参数越大，能力越强，但所需显卡算力要求大），复制命令到cmd下载：
+
+
+
+Apifox调用本地部署模型
+
+在本地成功部署模型后，可进入ollama官网，在此页面往下滑，有个Blog，再点击thinking，继续往下滑，直到出现
+
+
+
+
+
+
+调用大模型
+
+遵循openAI规范（引领者）
+
+
+
+常见参数
+响应数据
+token是什么在大语言模型中，Token是大模型处理文本的基本单位，
+可以理解为模型“看得懂”的最小文本片段
+用户输入的内容都需要转换成token，才能让大模型更好的处理
+英文：一个token = 4个字符
+中文：一个汉字 ≈ 1~2个token
+大模型应用
+
+注意区分产品（网页端对话的那种全叫产品）和大模型
+
+
+
+
+AI应用开发技术架构
+SpringAI
+
+新项目推荐springAI，老项目推荐LangChain4j
+
+
+对话机器人
+
+openAI访问大模型的规范
+
+操作步骤
+
+引入依赖
+引入管理依赖：管理与springAI有关的所有依赖以及指定版本
+引入（基于ollama）模型起步依赖
+
+
+
+
+
+配置模型
+基于ollama
+基于openAI
+
+
+
+
+
+配置客户端
+
+
+实例
+
+新建项目（利用脚手架快速搭建）
+
+
+
+引依赖
+
+
+
+配置模型
+
+
+
+配置客户端
+
+
+
+
+使用
+整段生成再输出
+
+
+
+
+2. 流式输出Flux对象
+
+会话日志
+
+SpringAI利用AOP原理提供了AI会话时的拦截、增强等功能，也就是Advisor。
+spring中已经封装好了各种Advisor
+
+
+
+
+跨域
+会话记忆
+
+大模型是不具备记忆能力的，要想让大模型记住之前聊天的内容，唯一的办法就是把之前聊天的内容与新的提示词一起发给大模型。
+
+LangChain4j
+会话功能
+快速入门
+
+引入Langchain4j依赖
+构建openAiChatModel对象
+调用chat方法与大模型交互
+
+
+
+baseUrl获取：
+
+
+
+配了API KEY后一定要重启idea，因为还没生效，idea启动默认会读一次系统环境变量
+
+打印日志信息
+Spring整合LangChain4j
+打印日志信息
+AiServices工具类
+
+传统model.chat方法在之后进行会话记忆等功能实现复杂，利用其提供的AiServices工具类更加方便
+
+
+
+
+声明式使用
+为接口创建代理对象，并将返回结果注入IOC容器
+wiringModel = AiServiceWiringMode.EXPLICIT，表示创建完代理对象后选择手动装配
+chatModel 表示选择哪个模型，langchain4j默认注入openAiChatModel
+
+
+
+
+
+当然也可以不添加值，会默认自动装配
+
+
+流式调用
+
+出现乱码可以对接口进行指定编码，produces
+
+
+消息注解
+
+用于限定AI回答的范围
+
+
+会话记忆
+
+大模型是不具备记忆能力的，要想让大模型记住之前聊天的内容，唯一的办法就是把之前聊天的内容与新的提示词一起发给大模型。
+
+
+
+langchain4j提供了一个接口用于定义会话记忆对象
+
+
+
+会话隔离
+
+原理
+
+
+
+会话记忆持久化
+
+刚才我们做的会话记忆，只要后端重启，会话记忆就没有了
+原因
+
+
+
+基于redis做持久化
+
+
+
+
+
+
+RAG知识库RAG,Retrieval Augmented Generation,检索增强生成。通过检索外部知识库的方式增强大模型的生成能力。
+原理
+
+
+向量数据库：
+Milvus、Chroma、Pinecone
+RedisSearch(Reids)、pgvector(PostgreSQL)
+
+
+
+
+
+如何往向量数据库中存储数据
+
+
+
+如何检索向量数据库
+
+
+
+总结
+两个向量的余弦相似度越高，说明向量对应的文本相似度越高
+向量数据库使用流程
+借助于向量模型，把文档知识数据向量化后存储到向量数据库
+用户输入的内容，借助于向量模型转化为向量后，与数据库中的向量通过计算余弦相似度的方式，找出相似度比较高的文本片段
+
+
+
+
+
+快速入门
+存储（构建向量数据库操作对象）
+
+引入依赖
+
+
+
+加载知识数据文档
+
+
+
+构建向量数据库操作对象
+
+
+
+把文档切割、向量化并存储到向量数据库中
+
+
+
+
+检索（构建向量数据库检索对象）
+
+构建向量数据库检索对象
+
+
+
+配置向量数据库检索对象
+
+
+
+
+外挂知识库示例
+
+
+
+
+
+核心API
+文档加载器
+文档解析器
+文档分割器
+向量模型
+向量数据库默认的向量数据库是基于内存的，重启就丢失了，需要持久化
+
+
+
+为了能正确加载，需要做个配置
+
+
+
+
+所以当向量库中有了数据后，这个@Bean就可以注释掉了
+
+
+
+Tools工具
+
+
+
+
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1565,371 +1930,6 @@ public class Cooker extends Thread &#123;    private ArrayBlockingQueue&lt;Strin
 
 
 6.多线程的书写套路1.循环2.同步代码块3.判断共享数据是否到了末尾（到了末尾）4,判断共享数据是否到了末尾（没有到末尾，执行核心逻辑）
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>大模型开发</title>
-    <url>/2025/09/01/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[在线文档：https://b11et3un53m.feishu.cn/wiki/DESQw9K4ji6Nf4kd9fzcwJTunmb
-AI发展
-
-符号主义
-机器学习
-深度学习 -&gt; 自然语言处理(NLP) -&gt; 大语言模型(LLM)大语言模型**Transformer**
-在**自然语言处理**(Natural Language Processing,**NLP**)中，有一项关键技术叫**Transformer**,这是一种先进的深度学习的**神经网络模型**，是现如今AI高速发展的最主要原因。我们所熟知的**大模型**(Large Language Models,LLM),例如**GPT**、**DeepSeek**)底层都是采用Transformer神经网络模型。
-底层原理
-T：基于Transformer的神经网络
-P：通过大量数据预训练，掌握自然语言规律
-G：基于上文计算概率，生成下一个token
-模型部署方案
-三种方案
-
-
-云部署
-
-
-优点
-前期成本低
-部署维护简单
-弹性扩展
-全球访问DNS
-
-
-缺点
-数据隐私
-网络依赖
-长期成本高
-
-
-
-
-本地部署
-
-
-优点
-数据安全
-不依赖外部网络
-长期成本低
-高度定制
-
-
-缺点
-初始成本高
-维护复杂
-部署周期长
-
-
-
-
-开放API
-
-
-优点
-前期成本极低
-无需部署
-无需维护
-全球访问
-
-
-缺点
-数据隐私
-网络依赖
-长期成本高
-定制限制云服务
-
-
-
-
-登录阿里云平台：https://www.aliyun.com/benefit?utm_content=se_1019887613
-打开阿里云百炼：
-打开控制台：
-创建api-key：
-体验模型将会消耗TokensApifox调用模型-H：添加请求头本地部署本地部署最简单的一种方案就是使用ollama,官网地址：https://ollama.com/
-
-下载ollama：
-
-
-
-
-选择模型下载：
-
-
-
-选择模型版本（参数越大，能力越强，但所需显卡算力要求大），复制命令到cmd下载：
-
-
-
-Apifox调用本地部署模型
-
-在本地成功部署模型后，可进入ollama官网，在此页面往下滑，有个Blog，再点击thinking，继续往下滑，直到出现
-
-
-
-
-
-
-调用大模型
-
-遵循openAI规范（引领者）
-
-
-
-常见参数
-响应数据
-token是什么在大语言模型中，Token是大模型处理文本的基本单位，
-可以理解为模型“看得懂”的最小文本片段
-用户输入的内容都需要转换成token，才能让大模型更好的处理
-英文：一个token = 4个字符
-中文：一个汉字 ≈ 1~2个token
-大模型应用
-
-注意区分产品（网页端对话的那种全叫产品）和大模型
-
-
-
-
-AI应用开发技术架构
-SpringAI
-
-新项目推荐springAI，老项目推荐LangChain4j
-
-
-对话机器人
-
-openAI访问大模型的规范
-
-操作步骤
-
-引入依赖
-引入管理依赖：管理与springAI有关的所有依赖以及指定版本
-引入（基于ollama）模型起步依赖
-
-
-
-
-
-配置模型
-基于ollama
-基于openAI
-
-
-
-
-
-配置客户端
-
-
-实例
-
-新建项目（利用脚手架快速搭建）
-
-
-
-引依赖
-
-
-
-配置模型
-
-
-
-配置客户端
-
-
-
-
-使用
-整段生成再输出
-
-
-
-
-2. 流式输出Flux对象
-
-会话日志
-
-SpringAI利用AOP原理提供了AI会话时的拦截、增强等功能，也就是Advisor。
-spring中已经封装好了各种Advisor
-
-
-
-
-跨域
-会话记忆
-
-大模型是不具备记忆能力的，要想让大模型记住之前聊天的内容，唯一的办法就是把之前聊天的内容与新的提示词一起发给大模型。
-
-LangChain4j
-会话功能
-快速入门
-
-引入Langchain4j依赖
-构建openAiChatModel对象
-调用chat方法与大模型交互
-
-
-
-baseUrl获取：
-
-
-
-配了API KEY后一定要重启idea，因为还没生效，idea启动默认会读一次系统环境变量
-
-打印日志信息
-Spring整合LangChain4j
-打印日志信息
-AiServices工具类
-
-传统model.chat方法在之后进行会话记忆等功能实现复杂，利用其提供的AiServices工具类更加方便
-
-
-
-
-声明式使用
-为接口创建代理对象，并将返回结果注入IOC容器
-wiringModel = AiServiceWiringMode.EXPLICIT，表示创建完代理对象后选择手动装配
-chatModel 表示选择哪个模型，langchain4j默认注入openAiChatModel
-
-
-
-
-
-当然也可以不添加值，会默认自动装配
-
-
-流式调用
-
-出现乱码可以对接口进行指定编码，produces
-
-
-消息注解
-
-用于限定AI回答的范围
-
-
-会话记忆
-
-大模型是不具备记忆能力的，要想让大模型记住之前聊天的内容，唯一的办法就是把之前聊天的内容与新的提示词一起发给大模型。
-
-
-
-langchain4j提供了一个接口用于定义会话记忆对象
-
-
-
-会话隔离
-
-原理
-
-
-
-会话记忆持久化
-
-刚才我们做的会话记忆，只要后端重启，会话记忆就没有了
-原因
-
-
-
-基于redis做持久化
-
-
-
-
-
-
-RAG知识库RAG,Retrieval Augmented Generation,检索增强生成。通过检索外部知识库的方式增强大模型的生成能力。
-原理
-
-
-向量数据库：
-Milvus、Chroma、Pinecone
-RedisSearch(Reids)、pgvector(PostgreSQL)
-
-
-
-
-
-如何往向量数据库中存储数据
-
-
-
-如何检索向量数据库
-
-
-
-总结
-两个向量的余弦相似度越高，说明向量对应的文本相似度越高
-向量数据库使用流程
-借助于向量模型，把文档知识数据向量化后存储到向量数据库
-用户输入的内容，借助于向量模型转化为向量后，与数据库中的向量通过计算余弦相似度的方式，找出相似度比较高的文本片段
-
-
-
-
-
-快速入门
-存储（构建向量数据库操作对象）
-
-引入依赖
-
-
-
-加载知识数据文档
-
-
-
-构建向量数据库操作对象
-
-
-
-把文档切割、向量化并存储到向量数据库中
-
-
-
-
-检索（构建向量数据库检索对象）
-
-构建向量数据库检索对象
-
-
-
-配置向量数据库检索对象
-
-
-
-
-外挂知识库示例
-
-
-
-
-
-核心API
-文档加载器
-文档解析器
-文档分割器
-向量模型
-向量数据库默认的向量数据库是基于内存的，重启就丢失了，需要持久化
-
-
-
-为了能正确加载，需要做个配置
-
-
-
-
-所以当向量库中有了数据后，这个@Bean就可以注释掉了
-
-
-
-Tools工具
-
-
-
-
 ]]></content>
       <categories>
         <category>Java</category>

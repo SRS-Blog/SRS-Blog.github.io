@@ -1,17 +1,19 @@
-window.onscroll = percent;// 执行函数
-// 页面百分比
-function percent() {
-    let a = document.documentElement.scrollTop || window.pageYOffset, // 卷去高度
-        b = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight) - document.documentElement.clientHeight, // 整个网页高度
-        result = Math.round(a / b * 100), // 计算百分比
-        up = document.querySelector("#go-up") // 获取按钮
-
-    if (result <= 95) {
-        up.childNodes[0].style.display = 'none'
-        up.childNodes[1].style.display = 'block'
-        up.childNodes[1].innerHTML = result;
-    } else {
-        up.childNodes[1].style.display = 'none'
-        up.childNodes[0].style.display = 'block'
-    }
-}
+/* 返回顶部按钮：平时显示滚动百分比数字，鼠标悬停时显示 ↑ 箭头 */
+/* 说明：JS 只负责计算并写入百分比数字，显示/隐藏与居中全部交给 readPercent.css 控制，
+   避免内联样式与 CSS 冲突，也不再依赖脆弱的 childNodes 索引。 */
+(function () {
+  function updatePercent() {
+    var up = document.getElementById('go-up');
+    if (!up) return;
+    var percent = up.querySelector('#percent');
+    if (!percent) return;
+    var scrolled = document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var total = (document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight;
+    var result = total > 0 ? Math.min(100, Math.round(scrolled / total * 100)) : 0;
+    percent.innerHTML = result + '<span>%</span>';
+  }
+  window.addEventListener('scroll', updatePercent, { passive: true });
+  window.addEventListener('load', updatePercent);
+  document.addEventListener('pjax:complete', updatePercent); // 兼容 pjax 切换页面
+  updatePercent();
+})();

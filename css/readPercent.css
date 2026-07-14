@@ -1,21 +1,26 @@
-/* 返回顶部 */
+/* 返回顶部按钮 #go-up：平时显示滚动百分比数字，鼠标悬停显示 ↑ 箭头 */
 
+/* 平时：隐藏箭头、显示居中的百分比数字 */
+button#go-up i {
+  display: none;
+}
 button#go-up #percent {
-    display: none;
-    font-weight: bold;
-    font-size: 15px !important;
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 35px;   /* 按钮高 35px，行高等高实现垂直居中 */
+  text-align: center;
+}
+/* 百分比里的 % 号小一号 */
+button#go-up #percent span {
+  font-size: 12px;
+  margin-left: 1px;
 }
 
-button#go-up span {
-    font-size: 12px!important;
-    margin-right: -1px;
-}
-
-/* 鼠标滑动到按钮上时显示返回顶部图标 */
+/* 悬停：显示箭头、隐藏百分比 */
 button#go-up:hover i {
-    display: block !important;
+  display: inline-block;
 }
-
 button#go-up:hover #percent {
-    display: none !important;
+  display: none;
 }
